@@ -20,7 +20,9 @@ function InfiniteList() {
     rootMargin: "50px 0px",
     // When the last item comes to the viewport
     onEnter: () => {
-      handleClick();
+      if(loadMore) {
+        handleClick();
+      }
     },
   });
 
