@@ -26,7 +26,7 @@ function InfiniteList() {
     },
   });
 
-  const getData = async (page) => {
+  const getData = async (page: any) => {
     return APIs.getProducts({ page, pageSize: PRODUCT_PAGE_SIZE });
   };
 
@@ -42,7 +42,7 @@ function InfiniteList() {
     setCurrentPage(currentPage + PRODUCT_PAGE_SIZE);
     getData(currentPage).then((res) => {
       let clone = _.cloneDeep(res);
-      let temp = listProduct.concat(clone);
+      let temp = listProduct?.concat(clone);
       dispatch(setData(temp));
       if (clone.length < PRODUCT_PAGE_SIZE) {
         setLoadMore(false);

@@ -11,16 +11,15 @@ function SearchInput() {
   const [search, setSearch] = useState('');
   const dispatch = useAppDispatch();
 
-  const handleChange = event => {
+  const handleChange = (event: any) => {
     setSearch(event.target.value);
   };
 
-  const getData = async (search) => {
+  const getData = async (search: any) => {
     return APIs.searchProducts({ search });
   };
 
   function handleClick() {
-    console.log(search);
     getData(search).then((res) => {
       let clone = _.cloneDeep(res)
       dispatch(setData(clone));
